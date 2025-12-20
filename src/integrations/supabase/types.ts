@@ -100,6 +100,39 @@ export type Database = {
           },
         ]
       }
+      reviews: {
+        Row: {
+          course_code: string | null
+          created_at: string
+          customer_name: string
+          id: string
+          is_published: boolean | null
+          rating: number
+          review_text: string
+          updated_at: string
+        }
+        Insert: {
+          course_code?: string | null
+          created_at?: string
+          customer_name: string
+          id?: string
+          is_published?: boolean | null
+          rating: number
+          review_text: string
+          updated_at?: string
+        }
+        Update: {
+          course_code?: string | null
+          created_at?: string
+          customer_name?: string
+          id?: string
+          is_published?: boolean | null
+          rating?: number
+          review_text?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       sample_materials: {
         Row: {
           course_code: string | null
