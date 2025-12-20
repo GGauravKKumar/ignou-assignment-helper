@@ -100,8 +100,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <a href="mailto:contact@ignouassist.com" className="text-muted-foreground hover:text-primary">
-                      contact@ignouassist.com
+                    <a href="mailto:servicesbyvishi@gmail.com" className="text-muted-foreground hover:text-primary">
+                      servicesbyvishi@gmail.com
                     </a>
                   </div>
                 </div>
@@ -112,8 +112,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <a href="tel:+919876543210" className="text-muted-foreground hover:text-primary">
-                      +91 98765 43210
+                    <a href="tel:+918287664264" className="text-muted-foreground hover:text-primary">
+                      +91 82876 64264
                     </a>
                   </div>
                 </div>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold">WhatsApp</h3>
                     <a
-                      href="https://wa.me/919876543210"
+                      href="https://wa.me/918287664264"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary"

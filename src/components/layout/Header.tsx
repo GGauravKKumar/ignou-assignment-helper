@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, GraduationCap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.jpg";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -20,9 +21,9 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <GraduationCap className="h-8 w-8 text-primary" />
+          <img src={logo} alt="Vishi IGNOU Services" className="h-10 w-10 rounded-full object-cover" />
           <span className="text-xl font-serif font-bold text-primary">
-            IGNOU Assist
+            Vishi IGNOU Services
           </span>
         </Link>
 
