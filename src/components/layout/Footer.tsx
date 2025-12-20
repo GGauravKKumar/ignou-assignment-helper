@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { GraduationCap, Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle, Instagram } from "lucide-react";
+import logo from "@/assets/logo.jpg";
 
 export function Footer() {
   return (
@@ -9,8 +10,8 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <GraduationCap className="h-8 w-8" />
-              <span className="text-xl font-serif font-bold">IGNOU Assist</span>
+              <img src={logo} alt="Vishi IGNOU Services" className="h-10 w-10 rounded-full object-cover" />
+              <span className="text-xl font-serif font-bold">Vishi IGNOU Services</span>
             </div>
             <p className="text-sm text-primary-foreground/80">
               Your trusted partner for IGNOU assignment help. Quality work, timely delivery, and academic excellence.
@@ -61,20 +62,20 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:contact@ignouassist.com" className="hover:text-accent transition-colors">
-                  contact@ignouassist.com
+                <a href="mailto:servicesbyvishi@gmail.com" className="hover:text-accent transition-colors">
+                  servicesbyvishi@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <a href="tel:+919876543210" className="hover:text-accent transition-colors">
-                  +91 98765 43210
+                <a href="tel:+918287664264" className="hover:text-accent transition-colors">
+                  +91 82876 64264
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4" />
                 <a 
-                  href="https://wa.me/919876543210" 
+                  href="https://wa.me/918287664264" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-accent transition-colors"
@@ -82,12 +83,23 @@ export function Footer() {
                   WhatsApp
                 </a>
               </li>
+              <li className="flex items-center gap-2">
+                <Instagram className="h-4 w-4" />
+                <a 
+                  href="https://www.instagram.com/vishi_ignou_services/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
+                  @vishi_ignou_services
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-primary-foreground/20 text-center text-sm text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} IGNOU Assist. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Vishi IGNOU Services. All rights reserved.</p>
         </div>
       </div>
     </footer>
