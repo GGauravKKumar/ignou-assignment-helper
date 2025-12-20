@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookOpen, PenTool, Users, FileText, CheckCircle, Clock, Award, MessageCircle } from "lucide-react";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
+import { ReviewsSection } from "@/components/home/ReviewsSection";
 import logo from "@/assets/logo.jpg";
 
 const features = [
@@ -146,6 +147,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Reviews Section */}
+      <ReviewsSection />
 
       {/* Instagram Feed */}
       <InstagramFeed />
