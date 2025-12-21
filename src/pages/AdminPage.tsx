@@ -4,13 +4,15 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { GraduationCap, LogOut, Package, ShoppingCart, FileText, Mail, Home, Star } from "lucide-react";
+import { GraduationCap, LogOut, Package, ShoppingCart, FileText, Mail, Home, Star, Bell, Truck } from "lucide-react";
 import { User } from "@supabase/supabase-js";
 import { ServicesManager } from "@/components/admin/ServicesManager";
 import { OrdersManager } from "@/components/admin/OrdersManager";
 import { MaterialsManager } from "@/components/admin/MaterialsManager";
 import { MessagesManager } from "@/components/admin/MessagesManager";
 import { ReviewsManager } from "@/components/admin/ReviewsManager";
+import { NoticesManager } from "@/components/admin/NoticesManager";
+import { DeliveryProofsManager } from "@/components/admin/DeliveryProofsManager";
 
 export default function AdminPage() {
   const [user, setUser] = useState<User | null>(null);
@@ -132,7 +134,7 @@ export default function AdminPage() {
       {/* Main Content */}
       <main className="container py-8">
         <Tabs defaultValue="orders" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:inline-grid">
+          <TabsList className="grid w-full grid-cols-7 lg:w-auto lg:inline-grid">
             <TabsTrigger value="orders" className="gap-2">
               <ShoppingCart className="h-4 w-4" />
               <span className="hidden sm:inline">Orders</span>
@@ -152,6 +154,14 @@ export default function AdminPage() {
             <TabsTrigger value="reviews" className="gap-2">
               <Star className="h-4 w-4" />
               <span className="hidden sm:inline">Reviews</span>
+            </TabsTrigger>
+            <TabsTrigger value="notices" className="gap-2">
+              <Bell className="h-4 w-4" />
+              <span className="hidden sm:inline">Notices</span>
+            </TabsTrigger>
+            <TabsTrigger value="delivery" className="gap-2">
+              <Truck className="h-4 w-4" />
+              <span className="hidden sm:inline">Delivery</span>
             </TabsTrigger>
           </TabsList>
 
@@ -173,6 +183,14 @@ export default function AdminPage() {
 
           <TabsContent value="reviews">
             <ReviewsManager />
+          </TabsContent>
+
+          <TabsContent value="notices">
+            <NoticesManager />
+          </TabsContent>
+
+          <TabsContent value="delivery">
+            <DeliveryProofsManager />
           </TabsContent>
         </Tabs>
       </main>

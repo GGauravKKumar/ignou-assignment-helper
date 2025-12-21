@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, PenTool, Users, FileText, CheckCircle, Clock, Award, MessageCircle } from "lucide-react";
+import { BookOpen, PenTool, Users, FileText, CheckCircle, Clock, Award, MessageCircle, Globe, GraduationCap } from "lucide-react";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { ReviewsSection } from "@/components/home/ReviewsSection";
+import { NoticeSlider } from "@/components/home/NoticeSlider";
 import logo from "@/assets/logo.jpg";
 
 const features = [
@@ -30,6 +31,12 @@ const features = [
   },
 ];
 
+const supportedBoards = [
+  { icon: GraduationCap, name: "IGNOU", description: "All Programs & Courses" },
+  { icon: BookOpen, name: "NIOS", description: "10th & 12th Board" },
+  { icon: Globe, name: "International", description: "University Students" },
+];
+
 const benefits = [
   { icon: CheckCircle, text: "100% Plagiarism-Free Content" },
   { icon: Clock, text: "On-Time Delivery" },
@@ -40,6 +47,9 @@ const benefits = [
 export default function HomePage() {
   return (
     <Layout>
+      {/* Notice Slider */}
+      <NoticeSlider />
+      
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground py-20 md:py-32">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNCI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
@@ -68,6 +78,31 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Supported Boards Section */}
+      <section className="py-12 bg-accent/10 border-y border-border">
+        <div className="container">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
+              We Support Students From
+            </h2>
+            <p className="text-muted-foreground">IGNOU, NIOS & International Universities</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            {supportedBoards.map((board, index) => (
+              <Card key={index} className="text-center border-2 border-accent/30 hover:border-accent transition-colors">
+                <CardContent className="pt-6">
+                  <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-4">
+                    <board.icon className="h-7 w-7 text-accent" />
+                  </div>
+                  <h3 className="font-serif font-bold text-xl mb-1">{board.name}</h3>
+                  <p className="text-sm text-muted-foreground">{board.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Overview */}
       <section className="py-16 md:py-24 bg-secondary/30">
         <div className="container">
@@ -76,7 +111,7 @@ export default function HomePage() {
               Our Services
             </h2>
             <p className="text-muted-foreground">
-              Comprehensive assignment solutions for IGNOU students across all programs
+              Comprehensive assignment solutions for IGNOU, NIOS & International students
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -170,12 +205,23 @@ export default function HomePage() {
               </Button>
             </Link>
             <a href="https://wa.me/918287664264" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white border-0">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 WhatsApp Us
               </Button>
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* View Delivery Proofs CTA */}
+      <section className="py-8 bg-muted">
+        <div className="container text-center">
+          <Link to="/delivery-proofs">
+            <Button variant="outline" size="lg">
+              View Delivery Proofs & Success Stories
+            </Button>
+          </Link>
         </div>
       </section>
     </Layout>
