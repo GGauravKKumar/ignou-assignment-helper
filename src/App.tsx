@@ -10,6 +10,7 @@ import SamplesPage from "./pages/SamplesPage";
 import ContactPage from "./pages/ContactPage";
 import AuthPage from "./pages/AuthPage";
 import AdminPage from "./pages/AdminPage";
+import DeliveryProofsPage from "./pages/DeliveryProofsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/delivery-proofs" element={<DeliveryProofsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

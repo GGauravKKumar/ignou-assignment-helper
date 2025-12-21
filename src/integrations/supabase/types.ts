@@ -44,6 +44,63 @@ export type Database = {
         }
         Relationships: []
       }
+      delivery_proofs: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string
+          is_published: boolean | null
+          state: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url: string
+          is_published?: boolean | null
+          state: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string
+          is_published?: boolean | null
+          state?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      notices: {
+        Row: {
+          created_at: string
+          display_order: number | null
+          id: string
+          is_active: boolean | null
+          message: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_active?: boolean | null
+          message: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_active?: boolean | null
+          message?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       orders: {
         Row: {
           admin_notes: string | null
@@ -204,6 +261,30 @@ export type Database = {
           is_active?: boolean | null
           price?: number
           title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      state_stats: {
+        Row: {
+          candidates_count: number | null
+          created_at: string
+          id: string
+          state: string
+          updated_at: string
+        }
+        Insert: {
+          candidates_count?: number | null
+          created_at?: string
+          id?: string
+          state: string
+          updated_at?: string
+        }
+        Update: {
+          candidates_count?: number | null
+          created_at?: string
+          id?: string
+          state?: string
           updated_at?: string
         }
         Relationships: []
