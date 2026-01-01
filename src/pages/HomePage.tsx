@@ -215,7 +215,7 @@ export default function HomePage() {
       </section>
 
       {/* View Delivery Proofs CTA */}
-      /*<section className="py-8 bg-muted">
+      {/*<section className="py-8 bg-muted">
         <div className="container text-center">
           <Link to="/delivery-proofs">
             <Button variant="outline" size="lg">
@@ -223,7 +223,7 @@ export default function HomePage() {
             </Button>
           </Link>
         </div>
-      </section>*/
+      </section>*/}
     </Layout>
   );
 }
