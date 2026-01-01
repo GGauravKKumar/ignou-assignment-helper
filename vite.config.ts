@@ -7,8 +7,8 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8081,
-    allowedHosts: ["b55040e2f22f.ngrok-free.app", "localhost"],
+    port: 8080
+    
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
