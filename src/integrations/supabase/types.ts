@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_settings: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          key: string
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          key: string
+          updated_at?: string
+          value: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          key?: string
+          updated_at?: string
+          value?: string
+        }
+        Relationships: []
+      }
       contact_messages: {
         Row: {
           created_at: string
@@ -116,6 +143,7 @@ export type Database = {
           service_id: string | null
           status: Database["public"]["Enums"]["order_status"] | null
           updated_at: string
+          user_id: string | null
         }
         Insert: {
           admin_notes?: string | null
@@ -131,6 +159,7 @@ export type Database = {
           service_id?: string | null
           status?: Database["public"]["Enums"]["order_status"] | null
           updated_at?: string
+          user_id?: string | null
         }
         Update: {
           admin_notes?: string | null
@@ -146,6 +175,7 @@ export type Database = {
           service_id?: string | null
           status?: Database["public"]["Enums"]["order_status"] | null
           updated_at?: string
+          user_id?: string | null
         }
         Relationships: [
           {

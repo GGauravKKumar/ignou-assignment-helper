@@ -9,8 +9,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { CheckCircle, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { z } from "zod";
+import { OrderSuccessOptions } from "@/components/order/OrderSuccessOptions";
 
 interface Service {
   id: string;
@@ -33,6 +34,7 @@ export default function OrderPage() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [currentUser, setCurrentUser] = useState<string | null>(null);
   const { toast } = useToast();
 
   const [formData, setFormData] = useState({
@@ -55,6 +57,18 @@ export default function OrderPage() {
       if (data) setServices(data);
     }
     fetchServices();
+
+    // Check if user is logged in
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) {
+        setCurrentUser(session.user.id);
+        // Pre-fill email if logged in
+        setFormData((prev) => ({
+          ...prev,
+          customer_email: session.user.email || "",
+        }));
+      }
+    });
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -79,6 +93,7 @@ export default function OrderPage() {
       ...formData,
       service_id: formData.service_id || null,
       deadline: formData.deadline || null,
+      user_id: currentUser, // Link order to user if logged in
     };
 
     const { error } = await supabase.from("orders").insert([orderData]);
@@ -104,15 +119,8 @@ export default function OrderPage() {
     return (
       <Layout>
         <section className="py-20">
-          <div className="container max-w-lg text-center">
-            <div className="w-20 h-20 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="h-10 w-10 text-success" />
-            </div>
-            <h1 className="text-3xl font-serif font-bold mb-4">Order Submitted Successfully!</h1>
-            <p className="text-muted-foreground mb-6">
-              Thank you for your order. Our team will review your requirements and contact you within 24 hours via WhatsApp or email.
-            </p>
-            <Button onClick={() => setSubmitted(false)}>Submit Another Order</Button>
+          <div className="container">
+            <OrderSuccessOptions onReset={() => setSubmitted(false)} />
           </div>
         </section>
       </Layout>

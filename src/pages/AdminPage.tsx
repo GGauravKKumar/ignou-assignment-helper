@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { GraduationCap, LogOut, Package, ShoppingCart, FileText, Mail, Home, Star, Bell, Truck } from "lucide-react";
+import { GraduationCap, LogOut, Package, ShoppingCart, FileText, Mail, Home, Star, Bell, Truck, Settings } from "lucide-react";
 import { User } from "@supabase/supabase-js";
 import { ServicesManager } from "@/components/admin/ServicesManager";
 import { OrdersManager } from "@/components/admin/OrdersManager";
@@ -13,6 +13,7 @@ import { MessagesManager } from "@/components/admin/MessagesManager";
 import { ReviewsManager } from "@/components/admin/ReviewsManager";
 import { NoticesManager } from "@/components/admin/NoticesManager";
 import { DeliveryProofsManager } from "@/components/admin/DeliveryProofsManager";
+import { SettingsManager } from "@/components/admin/SettingsManager";
 
 export default function AdminPage() {
   const [user, setUser] = useState<User | null>(null);
@@ -134,7 +135,7 @@ export default function AdminPage() {
       {/* Main Content */}
       <main className="container py-8">
         <Tabs defaultValue="orders" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-7 lg:w-auto lg:inline-grid">
+          <TabsList className="grid w-full grid-cols-8 lg:w-auto lg:inline-grid">
             <TabsTrigger value="orders" className="gap-2">
               <ShoppingCart className="h-4 w-4" />
               <span className="hidden sm:inline">Orders</span>
@@ -162,6 +163,10 @@ export default function AdminPage() {
             <TabsTrigger value="delivery" className="gap-2">
               <Truck className="h-4 w-4" />
               <span className="hidden sm:inline">Delivery</span>
+            </TabsTrigger>
+            <TabsTrigger value="settings" className="gap-2">
+              <Settings className="h-4 w-4" />
+              <span className="hidden sm:inline">Settings</span>
             </TabsTrigger>
           </TabsList>
 
@@ -191,6 +196,10 @@ export default function AdminPage() {
 
           <TabsContent value="delivery">
             <DeliveryProofsManager />
+          </TabsContent>
+
+          <TabsContent value="settings">
+            <SettingsManager />
           </TabsContent>
         </Tabs>
       </main>
