@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/delivery-proofs", label: "Success Stories" },
   { href: "/order", label: "Order Now" },
   { href: "/contact", label: "Contact" },
+  { href: "/dashboard", label: "My Orders" },
 ];
 
 export function Header() {
