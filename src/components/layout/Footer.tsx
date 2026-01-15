@@ -14,7 +14,7 @@ export function Footer() {
               <span className="text-xl font-serif font-bold">Vishi IGNOU Services</span>
             </div>
             <p className="text-sm text-primary-foreground/80">
-              Your trusted partner for IGNOU assignment help. Quality work, timely delivery, and academic excellence.
+              Your trusted partner for IGNOU assignment help since 2019. Quality work, timely delivery, and academic excellence.
             </p>
           </div>
 
