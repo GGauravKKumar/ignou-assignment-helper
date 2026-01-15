@@ -41,11 +41,16 @@ export function NoticeSlider() {
   return (
     <div className="bg-accent text-accent-foreground py-2 overflow-hidden">
       <div className="container">
-        <div className="flex items-center justify-center gap-2 animate-pulse">
-          <AlertCircle className="h-4 w-4 flex-shrink-0" />
-          <p className="text-sm font-medium text-center truncate">
-            {notices[currentIndex]?.message}
-          </p>
+        <div className="flex items-center justify-center gap-2">
+          <AlertCircle className="h-4 w-4 flex-shrink-0 animate-pulse" />
+          <div className="overflow-hidden flex-1 min-w-0">
+            <p 
+              key={notices[currentIndex]?.id}
+              className="text-sm font-medium whitespace-nowrap animate-marquee md:animate-none md:text-center"
+            >
+              {notices[currentIndex]?.message}
+            </p>
+          </div>
         </div>
       </div>
     </div>
